@@ -86,13 +86,18 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   
+  host = 'sorcery-sso.herokuapp.com'
+
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
-    :domain => 'sorcery-sso.herokuapp.com',
+    :domain => host,
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+  config.action_controller.default_url_options = {:host => host}
+  config.action_mailer.default_url_options = {:host => host}
 end
