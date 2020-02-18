@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def activation_needed_email(user)
     @user = user
-    @url  = activate_user_url(user.activation_token)
+    @url  = activate_user_url(user.activation_code)
     mail(to: user.email,
          subject: 'Welcome to My Awesome Site')
   end
