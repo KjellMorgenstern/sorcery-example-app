@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get :activate, on: :member
   end
 
+  get 'logins/new'
+  post 'logins/create'
+
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :password_resets, only: [:create, :edit, :update]
 
