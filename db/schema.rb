@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_161739) do
+ActiveRecord::Schema.define(version: 2016_12_13_041715) do
 
   create_table "user_providers", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2020_03_13_161739) do
     t.datetime "lock_expires_at"
     t.string "type"
     t.string "last_login_from_ip_address"
-    t.string "login_token"
     t.index ["activation_code"], name: "index_users_on_activation_code"
     t.index ["email"], name: "index_users_on_email"
     t.index ["last_logout_at", "last_activity_at"], name: "index_users_on_last_logout_at_and_last_activity_at"
